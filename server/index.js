@@ -9,6 +9,9 @@ import { testConnection } from './config/database.js'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
+// Import authentication middleware
+import { requireAuth, getAuth, addUserContext } from './middleware/auth.js'
+
 // Import route handlers
 import employeeRoutes from './routes/employees.js'
 import jobRoutes from './routes/jobs.js'
@@ -74,12 +77,28 @@ app.get('/health', async (req, res) => {
   })
 })
 
-// API Routes
-app.use('/api/employees', employeeRoutes)
-app.use('/api/jobs', jobRoutes)
-app.use('/api/timesheets', timesheetRoutes)
-app.use('/api/attendance', attendanceRoutes)
-app.use('/api/uploads', uploadRoutes)
+// API Routes with Authentication
+// Public routes (no auth required)
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok', auth: 'not required for health check' })
+})
+
+// Protected routes (require authentication)
+app.use('/api/employees', requireAuth, addUserContext, employeeRoutes)
+app.use('/api/jobs', requireAuth, addUserContext, jobRoutes)
+app.use('/api/timesheets', requireAuth, addUserContext, timesheetRoutes)
+app.use('/api/attendance', requireAuth, addUserContext, attendanceRoutes)
+app.use('/api/uploads', requireAuth, addUserContext, uploadRoutes)
+
+// Optional: User info endpoint
+app.get('/api/user', requireAuth, (req, res) => {
+  res.json({
+    userId: req.auth?.userId,
+    sessionId: req.auth?.sessionId,
+    orgId: req.auth?.orgId,
+    message: 'User authenticated successfully'
+  })
+})
 
 // Error handling middleware
 app.use((error, req, res, next) => {
