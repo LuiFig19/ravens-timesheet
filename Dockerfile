@@ -1,5 +1,5 @@
-# Use Node.js LTS version
-FROM node:18-alpine
+# Use Node.js LTS version (standard instead of alpine for better compatibility)
+FROM node:18
 
 # Set working directory
 WORKDIR /app
@@ -7,8 +7,9 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install ALL dependencies (including dev dependencies needed for build)
-RUN npm ci
+# Clear npm cache and install ALL dependencies (including dev dependencies needed for build)
+RUN npm cache clean --force
+RUN npm ci --verbose
 
 # Copy source code
 COPY . .
