@@ -119,7 +119,7 @@ function App() {
             <div className="header-left">
               <div className="ravens-marine-logo-container">
                 <img 
-                  src="/ravens-marine-logo.png" 
+                  src="/ravens_logo_reference.svg" 
                   alt="Ravens Marine Logo" 
                   className="ravens-marine-logo"
                 />
