@@ -251,6 +251,45 @@
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+/* Ravens Marine Logo Styles */
+.ravens-marine-logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.ravens-marine-logo {
+  max-width: 350px;
+  width: 90vw;
+  max-height: 100px;
+  height: auto;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 4px 15px rgba(37, 99, 235, 0.2));
+}
+
+.ravens-marine-logo:hover {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 6px 20px rgba(37, 99, 235, 0.3));
+}
+
+/* Responsive adjustments for Ravens Marine Logo */
+@media (max-width: 768px) {
+  .ravens-marine-logo {
+    max-width: 280px;
+    max-height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ravens-marine-logo {
+    max-width: 240px;
+    max-height: 70px;
+  }
+}
+
 /* Responsive Progress Bar */
 @media (max-width: 768px) {
   .progress-bar {
@@ -668,7 +707,7 @@
   margin-bottom: 2rem;
 }
 
-.folders-header .ravens-logo-container {
+.folders-header .ravens-marine-logo-container {
   margin-bottom: 1.5rem;
 }
 
@@ -746,7 +785,7 @@
   margin-bottom: 2rem;
 }
 
-.saved-folders-header .ravens-logo-container {
+.saved-folders-header .ravens-marine-logo-container {
   margin-bottom: 1.5rem;
 }
 
@@ -1199,7 +1238,7 @@
   margin-bottom: 2rem;
 }
 
-.attendance-header .ravens-logo-container {
+.attendance-header .ravens-marine-logo-container {
   margin-bottom: 1.5rem;
 }
 
@@ -1468,7 +1507,7 @@
   margin-bottom: 2rem;
 }
 
-.job-management-header .ravens-logo-container {
+.job-management-header .ravens-marine-logo-container {
   margin-bottom: 1.5rem;
 }
 

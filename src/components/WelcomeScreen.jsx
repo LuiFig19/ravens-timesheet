@@ -4,21 +4,13 @@ const WelcomeScreen = ({ onStart, onShowFolders, onShowJobManagement, onShowAtte
   return (
     <div className="welcome-screen">
       <div className="welcome-header">
-        {/* Ravens Logo */}
-        <div className="ravens-logo-container">
+        {/* Ravens Marine Logo */}
+        <div className="ravens-marine-logo-container">
           <img 
-            src="/ravens-logo.png" 
-            alt="Ravens Logo" 
-            className="ravens-logo-image"
-            onError={(e) => {
-              e.target.style.display = 'none';
-              e.target.nextSibling.style.display = 'flex';
-            }}
+            src="/ravens-marine-logo.svg" 
+            alt="Ravens Marine Logo" 
+            className="ravens-marine-logo"
           />
-          {/* Fallback text if image fails to load */}
-          <div className="ravens-logo-fallback">
-            <div className="ravens-logo-text">RAVENS</div>
-          </div>
         </div>
         
         {/* Centered clipboard icon */}

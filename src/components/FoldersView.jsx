@@ -292,19 +292,12 @@ const FoldersView = ({ onBack }) => {
   return (
     <div className="saved-folders-container">
       <div className="saved-folders-header">
-        <div className="ravens-logo-container">
+        <div className="ravens-marine-logo-container">
           <img 
-            src="/ravens-logo.png" 
-            alt="Ravens Logo" 
-            className="ravens-logo-image"
-            onError={(e) => {
-              e.target.style.display = 'none';
-              e.target.nextSibling.style.display = 'flex';
-            }}
+            src="/ravens-marine-logo.svg" 
+            alt="Ravens Marine Logo" 
+            className="ravens-marine-logo"
           />
-          <div className="ravens-logo-fallback">
-            <div className="ravens-logo-text">RAVENS</div>
-          </div>
         </div>
         <h2>📁 Saved Folders</h2>
         <p>Organized document storage and retrieval system</p>
