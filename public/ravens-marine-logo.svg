@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="100" fill="white"/>
+  
+  <!-- Blue orbital/planetary design element -->
+  <g transform="translate(50, 50)">
+    <!-- Outer orbital ring -->
+    <ellipse cx="0" cy="0" rx="35" ry="8" fill="none" stroke="#2563eb" stroke-width="2.5" transform="rotate(-20)"/>
+    <!-- Middle orbital ring -->
+    <ellipse cx="0" cy="0" rx="25" ry="6" fill="none" stroke="#3b82f6" stroke-width="2" transform="rotate(-20)"/>
+    <!-- Inner orbital ring -->
+    <ellipse cx="0" cy="0" rx="15" ry="4" fill="none" stroke="#60a5fa" stroke-width="1.5" transform="rotate(-20)"/>
+    <!-- Central planet/core -->
+    <circle cx="0" cy="0" r="6" fill="#1e40af"/>
+    <!-- Small orbital elements -->
+    <circle cx="30" cy="-5" r="2" fill="#3b82f6"/>
+    <circle cx="-28" cy="4" r="1.5" fill="#60a5fa"/>
+  </g>
+  
+  <!-- RAVENS text -->
+  <text x="120" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#1e40af" letter-spacing="1px">RAVENS</text>
+  
+  <!-- MARINE text -->
+  <text x="260" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#2563eb" letter-spacing="1px">MARINE</text>
+  
+  <!-- Tagline -->
+  <text x="120" y="65" font-family="Arial, sans-serif" font-size="10" fill="#64748b" letter-spacing="2px">A MEECO SULLIVAN COMPANY</text>
+  
+  <!-- Decorative underline -->
+  <line x1="120" y1="75" x2="380" y2="75" stroke="#93c5fd" stroke-width="1.5"/>
+</svg> 

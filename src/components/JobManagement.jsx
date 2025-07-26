@@ -249,7 +249,7 @@ const JobManagement = ({ onBack }) => {
       <div className="job-management-header">
         <div className="ravens-marine-logo-container">
           <img 
-            src="/ravens_logo_reference.svg" 
+            src="/ravens-marine-logo.svg" 
             alt="Ravens Marine Logo" 
             className="ravens-marine-logo"
           />
