@@ -1,32 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg">
-  <!-- Background -->
-  <rect width="400" height="100" fill="white"/>
+<svg viewBox="0 0 500 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Blue gradient for the sphere -->
+    <radialGradient id="sphereGradient" cx="0.3" cy="0.3">
+      <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#4682B4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E40AF;stop-opacity:1" />
+    </radialGradient>
+    
+    <!-- Ring gradient -->
+    <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1E40AF;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#4682B4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E40AF;stop-opacity:0.8" />
+    </linearGradient>
+  </defs>
   
-  <!-- Blue orbital/planetary design element -->
-  <g transform="translate(50, 50)">
-    <!-- Outer orbital ring -->
-    <ellipse cx="0" cy="0" rx="35" ry="8" fill="none" stroke="#2563eb" stroke-width="2.5" transform="rotate(-20)"/>
-    <!-- Middle orbital ring -->
-    <ellipse cx="0" cy="0" rx="25" ry="6" fill="none" stroke="#3b82f6" stroke-width="2" transform="rotate(-20)"/>
-    <!-- Inner orbital ring -->
-    <ellipse cx="0" cy="0" rx="15" ry="4" fill="none" stroke="#60a5fa" stroke-width="1.5" transform="rotate(-20)"/>
-    <!-- Central planet/core -->
-    <circle cx="0" cy="0" r="6" fill="#1e40af"/>
-    <!-- Small orbital elements -->
-    <circle cx="30" cy="-5" r="2" fill="#3b82f6"/>
-    <circle cx="-28" cy="4" r="1.5" fill="#60a5fa"/>
-  </g>
+  <!-- Main blue sphere -->
+  <circle cx="80" cy="60" r="35" fill="url(#sphereGradient)" stroke="#1E40AF" stroke-width="1"/>
+  
+  <!-- Orbital ring around the sphere -->
+  <ellipse cx="80" cy="60" rx="55" ry="15" fill="none" stroke="url(#ringGradient)" stroke-width="4" transform="rotate(-20 80 60)"/>
   
   <!-- RAVENS text -->
-  <text x="120" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#1e40af" letter-spacing="1px">RAVENS</text>
+  <text x="140" y="45" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#1E40AF" letter-spacing="1px">RAVENS</text>
   
   <!-- MARINE text -->
-  <text x="260" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#2563eb" letter-spacing="1px">MARINE</text>
+  <text x="330" y="45" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#4682B4" letter-spacing="1px">MARINE</text>
+  
+  <!-- Underline -->
+  <line x1="140" y1="55" x2="480" y2="55" stroke="#4682B4" stroke-width="2"/>
   
   <!-- Tagline -->
-  <text x="120" y="65" font-family="Arial, sans-serif" font-size="10" fill="#64748b" letter-spacing="2px">A MEECO SULLIVAN COMPANY</text>
-  
-  <!-- Decorative underline -->
-  <line x1="120" y1="75" x2="380" y2="75" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="140" y="80" font-family="Arial, sans-serif" font-size="12" fill="#666666" letter-spacing="3px">A MEECO SULLIVAN COMPANY</text>
 </svg> 
