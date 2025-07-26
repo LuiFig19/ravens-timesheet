@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: ravens-timesheet
+    env: node
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npm run start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3001
+  - type: pserv
+    name: ravens-timesheet-db
+    env: postgresql
+    plan: free
+    databaseName: ravenstimesheet
+    user: postgres 

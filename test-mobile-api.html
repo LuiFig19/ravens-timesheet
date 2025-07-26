@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile API Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-result { margin: 10px 0; padding: 10px; border-radius: 5px; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .info { background: #d1ecf1; color: #0c5460; }
+        button { padding: 10px 20px; margin: 5px; }
+    </style>
+</head>
+<body>
+    <h1>🌐 Mobile API Connection Test</h1>
+    
+    <div class="test-result info">
+        <strong>Current Location:</strong> <span id="currentLocation"></span><br>
+        <strong>User Agent:</strong> <span id="userAgent"></span>
+    </div>
+    
+    <button onclick="testLocalhost()">Test localhost:3001</button>
+    <button onclick="testNetworkIP()">Test 192.168.88.241:3001</button>
+    <button onclick="testDynamic()">Test Dynamic Detection</button>
+    
+    <div id="results"></div>
+
+    <script>
+        // Display current location info
+        document.getElementById('currentLocation').textContent = window.location.href;
+        document.getElementById('userAgent').textContent = navigator.userAgent;
+
+        function addResult(message, isSuccess = true) {
+            const div = document.createElement('div');
+            div.className = `test-result ${isSuccess ? 'success' : 'error'}`;
+            div.innerHTML = message;
+            document.getElementById('results').appendChild(div);
+        }
+
+        function getApiBaseUrl() {
+            const currentHost = window.location.hostname;
+            
+            if (currentHost === 'localhost' || currentHost === '127.0.0.1') {
+                return 'http://localhost:3001';
+            }
+            
+            if (currentHost !== 'localhost' && currentHost !== '127.0.0.1') {
+                return `http://${currentHost}:3001`;
+            }
+            
+            return 'http://localhost:3001';
+        }
+
+        async function testAPI(url) {
+            try {
+                const response = await fetch(`${url}/health`);
+                const data = await response.json();
+                return { success: true, data };
+            } catch (error) {
+                return { success: false, error: error.message };
+            }
+        }
+
+        async function testLocalhost() {
+            addResult('🔄 Testing localhost:3001...', true);
+            const result = await testAPI('http://localhost:3001');
+            
+            if (result.success) {
+                addResult(`✅ localhost:3001 - SUCCESS<br>Status: ${result.data.status}<br>Database: ${result.data.database}`, true);
+            } else {
+                addResult(`❌ localhost:3001 - FAILED<br>Error: ${result.error}`, false);
+            }
+        }
+
+        async function testNetworkIP() {
+            addResult('🔄 Testing 192.168.88.241:3001...', true);
+            const result = await testAPI('http://192.168.88.241:3001');
+            
+            if (result.success) {
+                addResult(`✅ 192.168.88.241:3001 - SUCCESS<br>Status: ${result.data.status}<br>Database: ${result.data.database}`, true);
+            } else {
+                addResult(`❌ 192.168.88.241:3001 - FAILED<br>Error: ${result.error}`, false);
+            }
+        }
+
+        async function testDynamic() {
+            const dynamicUrl = getApiBaseUrl();
+            addResult(`🔄 Testing dynamic detection: ${dynamicUrl}...`, true);
+            const result = await testAPI(dynamicUrl);
+            
+            if (result.success) {
+                addResult(`✅ Dynamic detection - SUCCESS<br>URL: ${dynamicUrl}<br>Status: ${result.data.status}`, true);
+            } else {
+                addResult(`❌ Dynamic detection - FAILED<br>URL: ${dynamicUrl}<br>Error: ${result.error}`, false);
+            }
+        }
+    </script>
+</body>
+</html> 
