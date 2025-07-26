@@ -7,9 +7,12 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Clear npm cache and install ALL dependencies (including dev dependencies needed for build)
+# Remove package-lock.json to fix npm bug with optional dependencies (rollup)
+RUN rm -f package-lock.json
+
+# Clear npm cache and do fresh install to fix rollup optional dependencies issue
 RUN npm cache clean --force
-RUN npm ci --verbose
+RUN npm install --verbose
 
 # Copy source code
 COPY . .
