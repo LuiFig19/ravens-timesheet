@@ -294,7 +294,7 @@ const FoldersView = ({ onBack }) => {
       <div className="saved-folders-header">
         <div className="ravens-marine-logo-container">
           <img 
-            src="/ravens-marine-logo.svg" 
+            src="/ravens-marine-logo.png" 
             alt="Ravens Marine Logo" 
             className="ravens-marine-logo"
           />

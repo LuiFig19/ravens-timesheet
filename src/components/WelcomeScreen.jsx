@@ -7,7 +7,7 @@ const WelcomeScreen = ({ onStart, onShowFolders, onShowJobManagement, onShowAtte
         {/* Ravens Marine Logo */}
         <div className="ravens-marine-logo-container">
           <img 
-            src="/ravens-marine-logo.svg" 
+            src="/ravens-marine-logo.png" 
             alt="Ravens Marine Logo" 
             className="ravens-marine-logo"
           />
