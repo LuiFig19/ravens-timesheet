@@ -3,11 +3,36 @@ import { ClerkProvider, SignedIn, SignedOut, SignInButton, UserButton } from '@c
 
 const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
+// Gracefully handle missing environment variable
 if (!clerkPubKey) {
-  throw new Error('Missing Clerk Publishable Key')
+  console.error('Missing VITE_CLERK_PUBLISHABLE_KEY environment variable')
+  console.info('Create a .env file with: VITE_CLERK_PUBLISHABLE_KEY=pk_test_bW92aW5nLWphdmVsaW4tNzguY2xlcmsuYWNjb3VudHMuZGV2JA')
 }
 
 const ClerkProviderWrapper = ({ children }) => {
+  // If no Clerk key, render without authentication
+  if (!clerkPubKey) {
+    console.warn('Running without authentication - missing Clerk keys')
+    return (
+      <div>
+        <div style={{ 
+          background: '#fef3c7', 
+          padding: '1rem', 
+          margin: '1rem', 
+          borderRadius: '8px',
+          border: '1px solid #f59e0b',
+          textAlign: 'center'
+        }}>
+          <h3 style={{ color: '#92400e', margin: '0 0 0.5rem 0' }}>⚠️ Authentication Not Configured</h3>
+          <p style={{ color: '#92400e', margin: 0, fontSize: '0.9rem' }}>
+            Create a .env file with your Clerk credentials to enable authentication
+          </p>
+        </div>
+        {children}
+      </div>
+    )
+  }
+
   return (
     <ClerkProvider publishableKey={clerkPubKey}>
       {children}
@@ -17,6 +42,27 @@ const ClerkProviderWrapper = ({ children }) => {
 
 // Authentication Header Component
 export const AuthHeader = () => {
+  if (!clerkPubKey) {
+    return (
+      <div className="auth-header">
+        <button 
+          className="btn btn-secondary" 
+          style={{ 
+            background: '#6b7280', 
+            color: 'white', 
+            border: 'none', 
+            padding: '0.5rem 1rem', 
+            borderRadius: '6px',
+            cursor: 'not-allowed'
+          }}
+          disabled
+        >
+          🔐 Auth Disabled
+        </button>
+      </div>
+    )
+  }
+
   return (
     <div className="auth-header">
       <SignedOut>
@@ -50,6 +96,11 @@ export const AuthHeader = () => {
 
 // Protected Route Component
 export const ProtectedRoute = ({ children, fallback }) => {
+  if (!clerkPubKey) {
+    // If no Clerk, just render children (no protection)
+    return children
+  }
+
   return (
     <>
       <SignedIn>

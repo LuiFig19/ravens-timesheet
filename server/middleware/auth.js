@@ -1,15 +1,23 @@
 import { ClerkExpressRequireAuth } from '@clerk/clerk-sdk-node'
 
-// Create Clerk middleware for protecting routes
-export const requireAuth = ClerkExpressRequireAuth({
-  onError: (error) => {
-    console.error('Clerk authentication error:', error)
-    return {
-      status: 401,
-      message: 'Authentication required'
+const isClerkConfigured = process.env.CLERK_SECRET_KEY && process.env.CLERK_SECRET_KEY.trim() !== ''
+
+// Create Clerk middleware for protecting routes (only if configured)
+export const requireAuth = isClerkConfigured 
+  ? ClerkExpressRequireAuth({
+      onError: (error) => {
+        console.error('Clerk authentication error:', error)
+        return {
+          status: 401,
+          message: 'Authentication required'
+        }
+      }
+    })
+  : (req, res, next) => {
+      // No auth middleware - just pass through
+      console.warn('⚠️  API running without authentication - Clerk not configured')
+      next()
     }
-  }
-})
 
 // Optional: middleware to get user info without requiring auth
 export const getAuth = (req, res, next) => {
