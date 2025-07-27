@@ -463,61 +463,7 @@
   }
 }
 
-/* Clerk Authentication Styles */
-.auth-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem;
-}
 
-.auth-signed-out .auth-signin-btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 0.9rem;
-}
-
-.auth-signed-out .auth-signin-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
-}
-
-.auth-signed-in {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.auth-fallback {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 60vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  padding: 2rem;
-}
-
-.auth-fallback-content {
-  text-align: center;
-  background: white;
-  padding: 3rem 2rem;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
-  width: 100%;
-}
-
-.auth-fallback-content h2 {
-  color: #333;
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-}
 
 .auth-fallback-content p {
   color: #666;

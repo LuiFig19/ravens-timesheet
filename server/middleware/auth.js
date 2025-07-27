@@ -1,52 +1,30 @@
-import { ClerkExpressRequireAuth } from '@clerk/clerk-sdk-node'
+// Simple authentication middleware for internal use
+// No external dependencies needed
 
-const isClerkConfigured = process.env.CLERK_SECRET_KEY && process.env.CLERK_SECRET_KEY.trim() !== ''
-
-// Create Clerk middleware for protecting routes (only if configured)
-export const requireAuth = isClerkConfigured 
-  ? ClerkExpressRequireAuth({
-      onError: (error) => {
-        console.error('Clerk authentication error:', error)
-        return {
-          status: 401,
-          message: 'Authentication required'
-        }
-      }
-    })
-  : (req, res, next) => {
-      // No auth middleware - just pass through
-      console.warn('⚠️  API running without authentication - Clerk not configured')
-      next()
-    }
-
-// Optional: middleware to get user info without requiring auth
-export const getAuth = (req, res, next) => {
-  try {
-    // Extract user info from Clerk if available
-    if (req.auth && req.auth.userId) {
-      req.userId = req.auth.userId
-      req.userInfo = {
-        userId: req.auth.userId,
-        sessionId: req.auth.sessionId,
-        orgId: req.auth.orgId,
-      }
-    }
-    next()
-  } catch (error) {
-    console.warn('Auth extraction failed:', error.message)
-    next() // Continue without auth info
-  }
+const requireAuth = (req, res, next) => {
+  // For now, allow all requests since this is an internal tool
+  // In production, you could add API key validation here
+  next()
 }
 
-// Middleware to add user context to database operations
-export const addUserContext = (req, res, next) => {
-  if (req.auth && req.auth.userId) {
-    // Add user ID to query parameters or body as needed
-    if (req.method === 'POST' || req.method === 'PUT') {
-      req.body.userId = req.auth.userId
-      req.body.createdBy = req.auth.userId
-      req.body.updatedBy = req.auth.userId
-    }
+const getAuth = (req, res, next) => {
+  // Simple auth context for compatibility
+  req.auth = {
+    userId: 'internal-user',
+    sessionId: 'internal-session',
+    orgId: 'ravens-marine'
   }
   next()
-} 
+}
+
+const addUserContext = (req, res, next) => {
+  // Add user context for database operations
+  req.user = {
+    id: 'internal-user',
+    email: 'internal@ravensmarine.com',
+    name: 'Internal User'
+  }
+  next()
+}
+
+export { requireAuth, getAuth, addUserContext } 

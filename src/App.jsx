@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './App.css'
-import ClerkProviderWrapper, { AuthHeader, ProtectedRoute } from './components/ClerkProvider'
-import { useAuth } from '@clerk/clerk-react'
+import PinGate from './components/PinGate'
 import WelcomeScreen from './components/WelcomeScreen'
 import CameraCapture from './components/CameraCapture'
 import ImageAnalysis from './components/ImageAnalysis'
@@ -11,7 +10,8 @@ import FoldersView from './components/FoldersView'
 import JobManagement from './components/JobManagement'
 import Attendance from './components/Attendance'
 
-function AppContent() {
+function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [currentStep, setCurrentStep] = useState(0)
   const [showFolders, setShowFolders] = useState(false)
   const [showJobManagement, setShowJobManagement] = useState(false)
@@ -19,20 +19,9 @@ function AppContent() {
   const [capturedImage, setCapturedImage] = useState(null)
   const [processedData, setProcessedData] = useState(null)
 
-  // Get auth state from Clerk
-  const { isSignedIn, isLoaded } = useAuth()
-
-  // Reset app state when user signs out
-  useEffect(() => {
-    if (isLoaded && !isSignedIn) {
-      setCurrentStep(0)
-      setShowFolders(false)
-      setShowJobManagement(false)
-      setShowAttendance(false)
-      setCapturedImage(null)
-      setProcessedData(null)
-    }
-  }, [isSignedIn, isLoaded])
+  const handleAuthenticated = () => {
+    setIsAuthenticated(true)
+  }
 
   const handleStart = () => {
     setCurrentStep(1)
@@ -132,8 +121,8 @@ function AppContent() {
       return <Attendance onBack={handleBack} />
     }
 
-    // Show main workflow steps
-    switch(currentStep) {
+    // Main timesheet flow
+    switch (currentStep) {
       case 0:
         return (
           <WelcomeScreen 
@@ -145,7 +134,7 @@ function AppContent() {
         )
       case 1:
         return (
-          <CameraCapture 
+          <CameraCapture
             onImageCapture={handleImageCapture}
             onUseDemo={handleUseDemo}
             onBack={handleBack}
@@ -153,97 +142,49 @@ function AppContent() {
         )
       case 2:
         return (
-          <ImageAnalysis 
+          <ImageAnalysis
             image={capturedImage}
-            onProcessed={handleProcessedData}
+            onAnalysisComplete={handleProcessedData}
             onBack={handleBack}
           />
         )
       case 3:
         return (
-          <DataProcessing 
+          <DataProcessing
             data={processedData}
-            onNext={(processedData) => {
-              setProcessedData(processedData)
-              setCurrentStep(4)
-            }}
+            onNext={() => setCurrentStep(4)}
             onBack={handleBack}
+            onDataUpdate={setProcessedData}
           />
         )
       case 4:
         return (
-          <FileExport 
+          <FileExport
             data={processedData}
-            onExportComplete={() => setCurrentStep(0)}
             onBack={handleBack}
+            onComplete={() => setCurrentStep(0)}
           />
         )
       default:
-        return <WelcomeScreen onStart={handleStart} />
+        return (
+          <WelcomeScreen 
+            onStart={handleStart}
+            onShowFolders={handleShowFolders}
+            onShowJobManagement={handleShowJobManagement}
+            onShowAttendance={handleShowAttendance}
+          />
+        )
     }
   }
 
   return (
-    <ProtectedRoute>
+    <PinGate onAuthenticated={handleAuthenticated}>
       <div className="App">
-        {currentStep > 0 && (
-          <header className="App-header">
-            <div className="header-content">
-              <div className="header-left">
-                <div className="ravens-marine-logo-container">
-                  <img 
-                    src="/ravens-marine-logo.png" 
-                    alt="Ravens Marine Logo" 
-                    className="ravens-marine-logo"
-                  />
-                </div>
-              </div>
-              
-              <div className="header-center">
-                <div className="progress-container">
-                  <div className="progress-bar">
-                    {[1, 2, 3, 4].map(step => (
-                      <div 
-                        key={step}
-                        className={`step ${currentStep >= step ? 'active' : ''}`}
-                      >
-                        {step === 1 && '📷'}
-                        {step === 2 && '🔍'}
-                        {step === 3 && '✏️'}
-                        {step === 4 && '📤'}
-                        <span className="step-label">{getStepName(step)}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              
-              <div className="header-right">
-                <AuthHeader />
-              </div>
-            </div>
-          </header>
-        )}
-
-        {currentStep === 0 && (
-          <div className="welcome-header-auth">
-            <AuthHeader />
-          </div>
-        )}
-
         <main className="App-main">
           {renderCurrentStep()}
         </main>
       </div>
-    </ProtectedRoute>
-  )
-}
-
-function App() {
-  return (
-    <ClerkProviderWrapper>
-      <AppContent />
-    </ClerkProviderWrapper>
+    </PinGate>
   )
 }
 

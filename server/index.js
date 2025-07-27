@@ -100,18 +100,16 @@ app.get('/api/user', requireAuth, (req, res) => {
   })
 })
 
-// Error handling middleware
-app.use((error, req, res, next) => {
-  console.error('Server Error:', error)
-  res.status(500).json({
-    error: 'Internal Server Error',
-    message: process.env.NODE_ENV === 'development' ? error.message : 'Something went wrong'
-  })
-})
-
-// Serve React app for all non-API routes in production
+// Serve static files from React build in production
 if (isProduction) {
+  console.log('🏗️  Production mode: Serving static files from dist/')
+  
+  // Serve static assets
+  app.use(express.static(path.join(__dirname, '../dist')))
+  
+  // Serve React app for all non-API routes
   app.get('*', (req, res) => {
+    console.log(`📄 Serving React app for route: ${req.path}`)
     res.sendFile(path.join(__dirname, '../dist/index.html'))
   })
 } else {
@@ -123,6 +121,15 @@ if (isProduction) {
     })
   })
 }
+
+// Error handling middleware (should be last)
+app.use((error, req, res, next) => {
+  console.error('Server Error:', error)
+  res.status(500).json({
+    error: 'Internal Server Error',
+    message: process.env.NODE_ENV === 'development' ? error.message : 'Something went wrong'
+  })
+})
 
 // Start server
 const startServer = async () => {
