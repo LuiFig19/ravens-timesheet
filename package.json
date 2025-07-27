@@ -10,6 +10,7 @@
     "dev:mobile": "node get-network-info.js && npm run dev:full",
     "build": "vite build",
     "start": "node server/index.js",
+    "debug": "node railway-debug.js",
     "lint": "eslint .",
     "preview": "vite preview",
     "db:setup": "node server/scripts/setupDatabase.js",
