@@ -34,7 +34,15 @@ const ClerkProviderWrapper = ({ children }) => {
   }
 
   return (
-    <ClerkProvider publishableKey={clerkPubKey}>
+    <ClerkProvider 
+      publishableKey={clerkPubKey}
+      navigate={(to) => window.location.href = to}
+      signInUrl="/"
+      signUpUrl="/"
+      afterSignInUrl="/"
+      afterSignUpUrl="/"
+      afterSignOutUrl="/"
+    >
       {children}
     </ClerkProvider>
   )
@@ -87,6 +95,7 @@ export const AuthHeader = () => {
             }}
             showName={true}
             userProfileMode="modal"
+            afterSignOutUrl="/"
           />
         </div>
       </SignedIn>

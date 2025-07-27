@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './App.css'
 import ClerkProviderWrapper, { AuthHeader, ProtectedRoute } from './components/ClerkProvider'
+import { useAuth } from '@clerk/clerk-react'
 import WelcomeScreen from './components/WelcomeScreen'
 import CameraCapture from './components/CameraCapture'
 import ImageAnalysis from './components/ImageAnalysis'
@@ -17,6 +18,21 @@ function AppContent() {
   const [showAttendance, setShowAttendance] = useState(false)
   const [capturedImage, setCapturedImage] = useState(null)
   const [processedData, setProcessedData] = useState(null)
+
+  // Get auth state from Clerk
+  const { isSignedIn, isLoaded } = useAuth()
+
+  // Reset app state when user signs out
+  useEffect(() => {
+    if (isLoaded && !isSignedIn) {
+      setCurrentStep(0)
+      setShowFolders(false)
+      setShowJobManagement(false)
+      setShowAttendance(false)
+      setCapturedImage(null)
+      setProcessedData(null)
+    }
+  }, [isSignedIn, isLoaded])
 
   const handleStart = () => {
     setCurrentStep(1)
