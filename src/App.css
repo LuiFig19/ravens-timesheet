@@ -3744,6 +3744,90 @@ p, span, div {
   color: var(--theme-danger) !important;
 }
 
+/* Job Management Specific Elements */
+.job-card-title,
+.job-card-location,
+.job-card-progress-title {
+  color: var(--theme-text-primary) !important;
+}
+
+.job-sections-title,
+.job-section-name,
+.job-section-hours {
+  color: var(--theme-text-primary) !important;
+}
+
+.add-job-section h3 {
+  color: var(--theme-text-primary) !important;
+}
+
+.job-form {
+  background: var(--theme-bg-tertiary) !important;
+  border: 1px solid var(--theme-border) !important;
+}
+
+/* Attendance Specific Elements */
+.employee-name,
+.employee-total,
+.total-hours {
+  color: var(--theme-text-primary) !important;
+}
+
+.days-header {
+  color: var(--theme-text-primary) !important;
+}
+
+.weekly-days {
+  background: var(--theme-bg-tertiary) !important;
+  border: 1px solid var(--theme-border) !important;
+}
+
+.status-legend {
+  background: var(--theme-bg-tertiary) !important;
+  border: 1px solid var(--theme-border) !important;
+}
+
+.legend-item {
+  color: var(--theme-text-primary) !important;
+}
+
+/* Form Elements in Job Management and Attendance */
+.section-input-row {
+  background: var(--theme-bg-secondary) !important;
+  border: 1px solid var(--theme-border) !important;
+}
+
+.task-dropdown-container select {
+  background: var(--theme-bg-tertiary) !important;
+  color: var(--theme-text-primary) !important;
+  border: 2px solid var(--theme-border) !important;
+}
+
+.custom-task-input {
+  background: var(--theme-bg-tertiary) !important;
+  color: var(--theme-text-primary) !important;
+  border: 2px solid var(--theme-border) !important;
+}
+
+.add-section-btn,
+.remove-section-btn,
+.remove-task-btn {
+  background: var(--theme-button-secondary) !important;
+  color: var(--theme-text-primary) !important;
+  border: 1px solid var(--theme-border) !important;
+}
+
+.add-section-btn:hover {
+  background: var(--theme-success) !important;
+  color: var(--theme-text-contrast) !important;
+}
+
+.remove-section-btn:hover,
+.remove-task-btn:hover {
+  background: var(--theme-danger) !important;
+  color: var(--theme-text-contrast) !important;
+}
+
 /* Ensure all containers are themed consistently */
 .welcome-screen,
 .camera-container,
