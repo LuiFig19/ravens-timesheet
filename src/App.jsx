@@ -9,6 +9,7 @@ import FileExport from './components/FileExport'
 import FoldersView from './components/FoldersView'
 import JobManagement from './components/JobManagement'
 import Attendance from './components/Attendance'
+import ThemeSwitcher from './components/ThemeSwitcher'
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
@@ -78,14 +79,14 @@ function App() {
           workOrder: "WO-2024-001",
           customer: "Acme Corp",
           description: "Hull Inspection",
-          code: "110",
+          code: "130",
           hours: 4
         },
         {
           workOrder: "WO-2024-002", 
           customer: "Marine Solutions Inc",
           description: "Engine Maintenance",
-          code: "120",
+          code: "260",
           hours: 4
         }
       ]
@@ -179,10 +180,11 @@ function App() {
 
   return (
     <PinGate onAuthenticated={handleAuthenticated}>
-      <div className="App">
+      <div className="App ravens-theme-buttons">
         <main className="App-main">
           {renderCurrentStep()}
         </main>
+        <ThemeSwitcher />
       </div>
     </PinGate>
   )
