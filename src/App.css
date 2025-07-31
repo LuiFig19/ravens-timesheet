@@ -2812,15 +2812,15 @@ html {
 /* Dark Mode */
 .theme-dark {
   --theme-bg-primary: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
-  --theme-bg-secondary: rgba(40, 40, 40, 0.95);
-  --theme-bg-tertiary: rgba(50, 50, 50, 0.8);
-  --theme-text-primary: #e0e0e0;
-  --theme-text-secondary: #b0b0b0;
+  --theme-bg-secondary: rgba(45, 45, 45, 0.95);
+  --theme-bg-tertiary: rgba(60, 60, 60, 0.9);
+  --theme-text-primary: #ffffff;
+  --theme-text-secondary: #cccccc;
   --theme-text-contrast: white;
   --theme-button-primary: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
   --theme-button-secondary: #4a5568;
   --theme-button-hover: linear-gradient(135deg, #5a6578 0%, #3d4758 100%);
-  --theme-border: rgba(255, 255, 255, 0.1);
+  --theme-border: rgba(255, 255, 255, 0.2);
   --theme-shadow: rgba(0, 0, 0, 0.3);
   --theme-accent: #81c7d4;
   --theme-success: #48bb78;
@@ -3791,6 +3791,25 @@ p, span, div {
   color: var(--theme-text-primary) !important;
 }
 
+/* Force all sections to use theme colors */
+.add-employee-section,
+.import-section {
+  background: var(--theme-bg-secondary) !important;
+  color: var(--theme-text-primary) !important;
+  border: 1px solid var(--theme-border) !important;
+}
+
+.employee-form {
+  background: var(--theme-bg-tertiary) !important;
+  border: 1px solid var(--theme-border) !important;
+}
+
+.no-employees {
+  background: var(--theme-bg-tertiary) !important;
+  color: var(--theme-text-secondary) !important;
+  border: 1px solid var(--theme-border) !important;
+}
+
 /* Form Elements in Job Management and Attendance */
 .section-input-row {
   background: var(--theme-bg-secondary) !important;
@@ -3807,6 +3826,69 @@ p, span, div {
   background: var(--theme-bg-tertiary) !important;
   color: var(--theme-text-primary) !important;
   border: 2px solid var(--theme-border) !important;
+}
+
+/* FORCE ALL FORM INPUTS AND CONTAINERS TO USE THEME COLORS */
+.attendance-container *,
+.job-management-container * {
+  color: inherit !important;
+}
+
+.attendance-container input,
+.job-management-container input,
+.attendance-container select,
+.job-management-container select,
+.attendance-container textarea,
+.job-management-container textarea {
+  background: var(--theme-bg-tertiary) !important;
+  color: var(--theme-text-primary) !important;
+  border: 2px solid var(--theme-border) !important;
+}
+
+.attendance-container input:focus,
+.job-management-container input:focus,
+.attendance-container select:focus,
+.job-management-container select:focus,
+.attendance-container textarea:focus,
+.job-management-container textarea:focus {
+  border-color: var(--theme-accent) !important;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+}
+
+.attendance-container input::placeholder,
+.job-management-container input::placeholder,
+.attendance-container textarea::placeholder,
+.job-management-container textarea::placeholder {
+  color: var(--theme-text-secondary) !important;
+}
+
+/* Force all divs and sections in these containers to use theme colors */
+.attendance-container > div,
+.job-management-container > div,
+.attendance-container section,
+.job-management-container section {
+  background: var(--theme-bg-secondary) !important;
+  color: var(--theme-text-primary) !important;
+}
+
+/* Override any hardcoded white backgrounds */
+.attendance-container [style*="background: #fff"],
+.attendance-container [style*="background:#fff"],
+.attendance-container [style*="background: white"],
+.attendance-container [style*="background:white"],
+.job-management-container [style*="background: #fff"],
+.job-management-container [style*="background:#fff"],
+.job-management-container [style*="background: white"],
+.job-management-container [style*="background:white"] {
+  background: var(--theme-bg-secondary) !important;
+}
+
+/* Override any hardcoded light backgrounds */
+.attendance-container [style*="background: #f8f9fa"],
+.attendance-container [style*="background:#f8f9fa"],
+.job-management-container [style*="background: #f8f9fa"],
+.job-management-container [style*="background:#f8f9fa"] {
+  background: var(--theme-bg-tertiary) !important;
 }
 
 .add-section-btn,
@@ -3910,4 +3992,62 @@ p, span, div {
 .theme-light .manual-entry-form,
 .theme-light .about-modal {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* NUCLEAR OPTION - FORCE ALL BACKGROUNDS AND TEXT COLORS */
+.theme-dark .attendance-container,
+.theme-dark .job-management-container,
+.theme-dark .attendance-container *,
+.theme-dark .job-management-container * {
+  background-color: var(--theme-bg-secondary) !important;
+  color: var(--theme-text-primary) !important;
+}
+
+.theme-dark .attendance-container input,
+.theme-dark .job-management-container input,
+.theme-dark .attendance-container select,
+.theme-dark .job-management-container select,
+.theme-dark .attendance-container textarea,
+.theme-dark .job-management-container textarea {
+  background-color: var(--theme-bg-tertiary) !important;
+  color: var(--theme-text-primary) !important;
+  border: 2px solid var(--theme-border) !important;
+}
+
+.theme-dark .attendance-container .add-employee-section,
+.theme-dark .attendance-container .import-section,
+.theme-dark .job-management-container .add-job-section {
+  background-color: var(--theme-bg-secondary) !important;
+  color: var(--theme-text-primary) !important;
+}
+
+.theme-dark .attendance-container .employee-form,
+.theme-dark .job-management-container .job-form {
+  background-color: var(--theme-bg-tertiary) !important;
+  color: var(--theme-text-primary) !important;
+}
+
+/* Fix specific problematic elements */
+.theme-dark .attendance-container h1,
+.theme-dark .attendance-container h2,
+.theme-dark .attendance-container h3,
+.theme-dark .attendance-container h4,
+.theme-dark .attendance-container h5,
+.theme-dark .job-management-container h1,
+.theme-dark .job-management-container h2,
+.theme-dark .job-management-container h3,
+.theme-dark .job-management-container h4,
+.theme-dark .job-management-container h5 {
+  color: var(--theme-text-primary) !important;
+}
+
+.theme-dark .attendance-container p,
+.theme-dark .attendance-container span,
+.theme-dark .attendance-container div,
+.theme-dark .attendance-container label,
+.theme-dark .job-management-container p,
+.theme-dark .job-management-container span,
+.theme-dark .job-management-container div,
+.theme-dark .job-management-container label {
+  color: var(--theme-text-primary) !important;
 }
