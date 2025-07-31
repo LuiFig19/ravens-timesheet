@@ -3453,10 +3453,25 @@ p, span, div {
   background: var(--theme-bg-tertiary) !important;
   color: var(--theme-text-primary) !important;
   border: 1px solid var(--theme-border) !important;
+  border-radius: 15px !important;
 }
 
 .theme-dark .about-modal .feature-section h3,
 .theme-dark .about-modal .tips-section h3 {
+  color: var(--theme-accent) !important;
+}
+
+/* Light mode feature sections with rounded corners */
+.theme-light .about-modal .feature-section,
+.theme-light .about-modal .tips-section {
+  background: var(--theme-bg-tertiary) !important;
+  color: var(--theme-text-primary) !important;
+  border: 1px solid var(--theme-border) !important;
+  border-radius: 15px !important;
+}
+
+.theme-light .about-modal .feature-section h3,
+.theme-light .about-modal .tips-section h3 {
   color: var(--theme-accent) !important;
 }
 
@@ -3810,6 +3825,7 @@ p, span, div {
   background: var(--theme-bg-tertiary) !important;
   border: 1px solid var(--theme-border) !important;
   color: var(--theme-text-primary) !important;
+  border-radius: 15px !important;
 }
 
 /* Feature Sections */
@@ -3817,6 +3833,7 @@ p, span, div {
   background: var(--theme-bg-tertiary) !important;
   color: var(--theme-text-primary) !important;
   border: 1px solid var(--theme-border) !important;
+  border-radius: 15px !important;
 }
 
 .feature-section h3 {
