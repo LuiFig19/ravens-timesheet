@@ -3386,6 +3386,98 @@ p, span, div {
   color: var(--theme-text-primary) !important;
 }
 
+/* About Modal Specific Fixes */
+.about-modal {
+  background: var(--theme-bg-secondary) !important;
+  color: var(--theme-text-primary) !important;
+  border: 1px solid var(--theme-border) !important;
+}
+
+.about-modal h3,
+.about-modal h4,
+.about-modal h5 {
+  color: var(--theme-text-primary) !important;
+}
+
+.about-modal p,
+.about-modal li,
+.about-modal span,
+.about-modal div {
+  color: var(--theme-text-primary) !important;
+}
+
+.about-modal .close-btn {
+  background: var(--theme-danger) !important;
+  color: var(--theme-text-contrast) !important;
+}
+
+/* Force all modal content to be readable */
+.theme-dark .modal-content,
+.theme-dark .about-modal {
+  background: var(--theme-bg-secondary) !important;
+  color: var(--theme-text-primary) !important;
+}
+
+.theme-dark .modal-content *,
+.theme-dark .about-modal * {
+  color: var(--theme-text-primary) !important;
+}
+
+.theme-dark .modal-content h1,
+.theme-dark .modal-content h2,
+.theme-dark .modal-content h3,
+.theme-dark .modal-content h4,
+.theme-dark .modal-content h5,
+.theme-dark .about-modal h1,
+.theme-dark .about-modal h2,
+.theme-dark .about-modal h3,
+.theme-dark .about-modal h4,
+.theme-dark .about-modal h5 {
+  color: var(--theme-text-primary) !important;
+}
+
+.theme-dark .modal-content p,
+.theme-dark .modal-content li,
+.theme-dark .modal-content span,
+.theme-dark .modal-content div,
+.theme-dark .about-modal p,
+.theme-dark .about-modal li,
+.theme-dark .about-modal span,
+.theme-dark .about-modal div {
+  color: var(--theme-text-primary) !important;
+}
+
+/* Fix specific content sections in About modal */
+.theme-dark .about-modal .feature-section,
+.theme-dark .about-modal .tips-section {
+  background: var(--theme-bg-tertiary) !important;
+  color: var(--theme-text-primary) !important;
+  border: 1px solid var(--theme-border) !important;
+}
+
+.theme-dark .about-modal .feature-section h3,
+.theme-dark .about-modal .tips-section h3 {
+  color: var(--theme-accent) !important;
+}
+
+/* Force ALL text elements in modals to be white in dark mode */
+.theme-dark .modal-overlay,
+.theme-dark .modal-overlay * {
+  color: var(--theme-text-primary) !important;
+}
+
+/* Override any hardcoded dark colors in modals */
+.theme-dark .about-modal [style*="color: #333"],
+.theme-dark .about-modal [style*="color:#333"],
+.theme-dark .about-modal [style*="color: #666"],
+.theme-dark .about-modal [style*="color:#666"],
+.theme-dark .modal-content [style*="color: #333"],
+.theme-dark .modal-content [style*="color:#333"],
+.theme-dark .modal-content [style*="color: #666"],
+.theme-dark .modal-content [style*="color:#666"] {
+  color: var(--theme-text-primary) !important;
+}
+
 .document-item {
   background: var(--theme-bg-tertiary) !important;
   color: var(--theme-text-primary) !important;
