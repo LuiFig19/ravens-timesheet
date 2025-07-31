@@ -3308,3 +3308,522 @@ p, span, div {
 .theme-light .pin-gate-modal {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
 }
+
+/* Comprehensive theme overrides for all components */
+
+/* Saved Folders and File Management Components */
+.saved-folders-container {
+  background: var(--theme-bg-secondary) !important;
+  color: var(--theme-text-primary) !important;
+  border: 1px solid var(--theme-border) !important;
+  box-shadow: 0 8px 32px var(--theme-shadow) !important;
+}
+
+.employee-card {
+  background: var(--theme-bg-tertiary) !important;
+  color: var(--theme-text-primary) !important;
+  border: 2px solid var(--theme-border) !important;
+  box-shadow: 0 4px 20px var(--theme-shadow) !important;
+}
+
+.employee-card:hover {
+  box-shadow: 0 8px 30px var(--theme-shadow) !important;
+  border-color: var(--theme-accent) !important;
+}
+
+.employee-header {
+  background: var(--theme-bg-tertiary) !important;
+  color: var(--theme-text-primary) !important;
+  border-bottom: 1px solid var(--theme-border) !important;
+}
+
+.employee-name,
+.employee-position,
+.employee-department,
+.employee-file-count,
+.timesheet-count,
+.upload-count {
+  color: var(--theme-text-primary) !important;
+}
+
+.file-item {
+  background: var(--theme-bg-secondary) !important;
+  color: var(--theme-text-primary) !important;
+  border: 1px solid var(--theme-border) !important;
+}
+
+.file-name,
+.file-date,
+.file-work-order,
+.file-hours {
+  color: var(--theme-text-primary) !important;
+}
+
+.section-title {
+  color: var(--theme-accent) !important;
+}
+
+.no-files,
+.no-files-hint,
+.no-data-message {
+  color: var(--theme-text-secondary) !important;
+}
+
+/* Modal Components */
+.modal-content {
+  background: var(--theme-bg-secondary) !important;
+  color: var(--theme-text-primary) !important;
+  border: 1px solid var(--theme-border) !important;
+  box-shadow: 0 20px 60px var(--theme-shadow) !important;
+}
+
+.modal-header {
+  background: var(--theme-button-primary) !important;
+  color: var(--theme-text-contrast) !important;
+}
+
+.modal-content h3 {
+  color: var(--theme-text-primary) !important;
+}
+
+.document-item {
+  background: var(--theme-bg-tertiary) !important;
+  color: var(--theme-text-primary) !important;
+  border: 1px solid var(--theme-border) !important;
+}
+
+.document-name,
+.document-date,
+.document-employee,
+.document-work-order {
+  color: var(--theme-text-primary) !important;
+}
+
+/* Search Components */
+.search-input {
+  background: var(--theme-bg-tertiary) !important;
+  color: var(--theme-text-primary) !important;
+  border: 2px solid var(--theme-border) !important;
+}
+
+.search-input:focus {
+  border-color: var(--theme-accent) !important;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+}
+
+.search-input::placeholder {
+  color: var(--theme-text-secondary) !important;
+}
+
+/* Loading and Error States */
+.loading-container,
+.error-container {
+  background: var(--theme-bg-secondary) !important;
+  color: var(--theme-text-primary) !important;
+}
+
+.loading-spinner {
+  border-top-color: var(--theme-accent) !important;
+}
+
+/* Action Buttons in File Lists */
+.download-btn {
+  background: var(--theme-button-secondary) !important;
+  color: var(--theme-text-primary) !important;
+  border: 1px solid var(--theme-border) !important;
+}
+
+.download-btn:hover {
+  background: var(--theme-accent) !important;
+  color: var(--theme-text-contrast) !important;
+}
+
+.clear-search-btn {
+  background: var(--theme-button-secondary) !important;
+  color: var(--theme-text-primary) !important;
+  border: 1px solid var(--theme-border) !important;
+}
+
+.clear-search-btn:hover {
+  background: var(--theme-danger) !important;
+  color: var(--theme-text-contrast) !important;
+}
+
+/* Status indicators */
+.file-status,
+.document-status {
+  color: var(--theme-text-primary) !important;
+}
+
+.file-status.processing,
+.document-status.processing {
+  color: var(--theme-warning) !important;
+}
+
+.file-status.completed,
+.document-status.completed {
+  color: var(--theme-success) !important;
+}
+
+.file-status.error,
+.document-status.error {
+  color: var(--theme-danger) !important;
+}
+
+/* Expand icons and interactive elements */
+.expand-icon {
+  color: var(--theme-accent) !important;
+}
+
+.employee-actions {
+  color: var(--theme-text-primary) !important;
+}
+
+/* Top folder button */
+.top-folder-btn {
+  background: var(--theme-button-primary) !important;
+  color: var(--theme-text-contrast) !important;
+}
+
+.top-folder-btn:hover {
+  background: var(--theme-button-hover) !important;
+}
+
+/* No data states */
+.no-data-container {
+  background: var(--theme-bg-tertiary) !important;
+  color: var(--theme-text-secondary) !important;
+  border: 1px solid var(--theme-border) !important;
+}
+
+.no-data-tips {
+  background: var(--theme-bg-secondary) !important;
+  color: var(--theme-text-primary) !important;
+  border: 1px solid var(--theme-border) !important;
+}
+
+/* Ensure all text elements inherit proper colors */
+.saved-folders-container h1,
+.saved-folders-container h2,
+.saved-folders-container h3,
+.saved-folders-container h4,
+.saved-folders-container h5,
+.saved-folders-container h6 {
+  color: var(--theme-text-primary) !important;
+}
+
+.saved-folders-container p,
+.saved-folders-container span,
+.saved-folders-container div {
+  color: inherit !important;
+}
+
+/* Ravens Marine Logo Container */
+.ravens-marine-logo-container {
+  background: transparent !important;
+}
+
+.ravens-marine-logo {
+  filter: none !important;
+}
+
+/* Dark mode specific adjustments */
+.theme-dark .saved-folders-container,
+.theme-dark .employee-card,
+.theme-dark .file-item,
+.theme-dark .modal-content {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+}
+
+.theme-dark .modal-content {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Light mode specific adjustments */
+.theme-light .saved-folders-container,
+.theme-light .employee-card,
+.theme-light .file-item {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+}
+
+.theme-light .modal-content {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Additional comprehensive theme overrides for all page containers */
+
+/* Job Management Container */
+.job-management-container {
+  background: var(--theme-bg-secondary) !important;
+  color: var(--theme-text-primary) !important;
+  border: 1px solid var(--theme-border) !important;
+  box-shadow: 0 8px 32px var(--theme-shadow) !important;
+}
+
+.job-card {
+  background: var(--theme-bg-tertiary) !important;
+  color: var(--theme-text-primary) !important;
+  border: 2px solid var(--theme-border) !important;
+  box-shadow: 0 4px 20px var(--theme-shadow) !important;
+}
+
+.job-card:hover {
+  box-shadow: 0 8px 30px var(--theme-shadow) !important;
+  border-color: var(--theme-accent) !important;
+}
+
+.job-header h3,
+.job-title,
+.section-name {
+  color: var(--theme-text-primary) !important;
+}
+
+.job-status,
+.job-location,
+.job-hours,
+.section-hours {
+  color: var(--theme-text-secondary) !important;
+}
+
+/* Attendance Container */
+.attendance-container {
+  background: var(--theme-bg-secondary) !important;
+  color: var(--theme-text-primary) !important;
+  border: 1px solid var(--theme-border) !important;
+  box-shadow: 0 8px 32px var(--theme-shadow) !important;
+}
+
+.employee-section {
+  background: var(--theme-bg-tertiary) !important;
+  color: var(--theme-text-primary) !important;
+  border: 1px solid var(--theme-border) !important;
+}
+
+.employee-header h3 {
+  color: var(--theme-accent) !important;
+}
+
+.days-grid {
+  background: var(--theme-bg-secondary) !important;
+}
+
+.day-indicator {
+  background: var(--theme-bg-tertiary) !important;
+  color: var(--theme-text-primary) !important;
+  border: 1px solid var(--theme-border) !important;
+}
+
+.day-hours-input {
+  background: var(--theme-bg-tertiary) !important;
+  color: var(--theme-text-primary) !important;
+  border: 2px solid var(--theme-border) !important;
+}
+
+.day-hours-input:focus {
+  border-color: var(--theme-accent) !important;
+}
+
+/* Camera Container */
+.camera-container {
+  background: var(--theme-bg-secondary) !important;
+  color: var(--theme-text-primary) !important;
+  border: 1px solid var(--theme-border) !important;
+  box-shadow: 0 8px 32px var(--theme-shadow) !important;
+}
+
+.camera-preview {
+  background: var(--theme-bg-tertiary) !important;
+  border: 1px solid var(--theme-border) !important;
+}
+
+/* Data Processing Container */
+.data-processing-container,
+.data-container {
+  background: var(--theme-bg-secondary) !important;
+  color: var(--theme-text-primary) !important;
+  border: 1px solid var(--theme-border) !important;
+  box-shadow: 0 8px 32px var(--theme-shadow) !important;
+}
+
+.work-entry-item {
+  background: var(--theme-bg-tertiary) !important;
+  color: var(--theme-text-primary) !important;
+  border: 1px solid var(--theme-border) !important;
+}
+
+.entry-header h4 {
+  color: var(--theme-accent) !important;
+}
+
+/* Analysis Container */
+.analysis-container,
+.image-analysis-container {
+  background: var(--theme-bg-secondary) !important;
+  color: var(--theme-text-primary) !important;
+  border: 1px solid var(--theme-border) !important;
+  box-shadow: 0 8px 32px var(--theme-shadow) !important;
+}
+
+.progress-bar-container {
+  background: var(--theme-bg-tertiary) !important;
+  border: 1px solid var(--theme-border) !important;
+}
+
+.progress-bar {
+  background: var(--theme-accent) !important;
+}
+
+.status-text {
+  color: var(--theme-text-primary) !important;
+}
+
+/* Export Container */
+.export-container {
+  background: var(--theme-bg-secondary) !important;
+  color: var(--theme-text-primary) !important;
+  border: 1px solid var(--theme-border) !important;
+  box-shadow: 0 8px 32px var(--theme-shadow) !important;
+}
+
+/* Manual Entry Form */
+.manual-entry-form {
+  background: var(--theme-bg-secondary) !important;
+  color: var(--theme-text-primary) !important;
+  border: 1px solid var(--theme-border) !important;
+  box-shadow: 0 8px 32px var(--theme-shadow) !important;
+}
+
+.manual-entry-form h3 {
+  color: var(--theme-text-primary) !important;
+}
+
+.manual-entry-row {
+  background: var(--theme-bg-tertiary) !important;
+  border: 1px solid var(--theme-border) !important;
+}
+
+/* Form Sections */
+.form-section {
+  background: var(--theme-bg-tertiary) !important;
+  color: var(--theme-text-primary) !important;
+  border: 1px solid var(--theme-border) !important;
+}
+
+.form-section h3 {
+  color: var(--theme-accent) !important;
+}
+
+/* Tips Section */
+.tips-section {
+  background: var(--theme-bg-tertiary) !important;
+  border: 1px solid var(--theme-border) !important;
+  color: var(--theme-text-primary) !important;
+}
+
+/* Feature Sections */
+.feature-section {
+  background: var(--theme-bg-tertiary) !important;
+  color: var(--theme-text-primary) !important;
+  border: 1px solid var(--theme-border) !important;
+}
+
+.feature-section h3 {
+  color: var(--theme-accent) !important;
+}
+
+/* Additional Status Classes */
+.status-on-budget {
+  color: var(--theme-success) !important;
+}
+
+.status-over-budget {
+  color: var(--theme-warning) !important;
+}
+
+.status-significantly-over {
+  color: var(--theme-danger) !important;
+}
+
+/* Ensure all containers are themed consistently */
+.welcome-screen,
+.camera-container,
+.analysis-container,
+.data-container,
+.data-processing-container,
+.export-container,
+.folders-container,
+.saved-folders-container,
+.job-management-container,
+.attendance-container,
+.manual-entry-form,
+.about-modal {
+  background: var(--theme-bg-secondary) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  color: var(--theme-text-primary) !important;
+  border: 1px solid var(--theme-border) !important;
+  box-shadow: 0 8px 32px var(--theme-shadow) !important;
+}
+
+/* Ensure all headings use theme colors */
+.welcome-screen h1,
+.welcome-screen h2,
+.camera-container h2,
+.analysis-container h2,
+.data-container h2,
+.data-processing-container h2,
+.export-container h2,
+.folders-container h2,
+.saved-folders-container h1,
+.job-management-container h2,
+.attendance-container h2,
+.manual-entry-form h3,
+.about-modal h3 {
+  color: var(--theme-text-primary) !important;
+}
+
+/* Ensure all paragraphs and text use theme colors */
+.welcome-screen p,
+.camera-container p,
+.analysis-container p,
+.data-container p,
+.data-processing-container p,
+.export-container p,
+.folders-container p,
+.saved-folders-container p,
+.job-management-container p,
+.attendance-container p,
+.manual-entry-form p,
+.about-modal p {
+  color: var(--theme-text-primary) !important;
+}
+
+/* Dark mode specific container adjustments */
+.theme-dark .welcome-screen,
+.theme-dark .camera-container,
+.theme-dark .analysis-container,
+.theme-dark .data-container,
+.theme-dark .data-processing-container,
+.theme-dark .export-container,
+.theme-dark .folders-container,
+.theme-dark .job-management-container,
+.theme-dark .attendance-container,
+.theme-dark .manual-entry-form,
+.theme-dark .about-modal {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Light mode specific container adjustments */
+.theme-light .welcome-screen,
+.theme-light .camera-container,
+.theme-light .analysis-container,
+.theme-light .data-container,
+.theme-light .data-processing-container,
+.theme-light .export-container,
+.theme-light .folders-container,
+.theme-light .job-management-container,
+.theme-light .attendance-container,
+.theme-light .manual-entry-form,
+.theme-light .about-modal {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+}
